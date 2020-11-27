@@ -1,0 +1,7 @@
+{% load pygmentize %}
+{% for file in files %}
+    <details>
+            <summary>{{file.name}}</summary>
+    {{file.src|pygmentize:file.type}}
+    </details>
+{% endfor %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block main %}
+<ul>
+    <li>
+        <a href="{%url 'example' %}">Example</a>
+    </li>
+    <li>
+        <a href="{% url 'book_search' %}" > Search Book</a>
+    </li>
+</ul>
+{% endblock main %}
