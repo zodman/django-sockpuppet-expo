@@ -7,7 +7,7 @@ let globOptions = {
 }
 
 let entryFiles = glob.sync("**/javascript/*.js", globOptions)
-
+console.log(entryFiles);
 let entryObj = {};
 entryFiles.forEach(function(file){
     if (file.includes('.')) {
@@ -25,7 +25,7 @@ const config = {
         filename: '[name].js'
     },
     optimization: {
-        minimize: false
+        minimize: true
     }
 }
 console.log(config);

@@ -1,11 +1,14 @@
-import ApplicationController from '../application_controller'
+import ApplicationController from './application_controller'
 
 export default class extends ApplicationController {
 
-  get_targets () {
-    return ['query', 'activity', 'count', 'list']
-  }
+//  static targets = 
+    static get targets () {
+     return ['query', 'activity', 'count', 'list']
+    }
+
   beforePerform (element, reflex) {
+      console.log("beforePerform")
     this.activityTarget.hidden = false
     this.countTarget.hidden = true
   }
