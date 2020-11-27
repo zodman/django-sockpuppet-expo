@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+        {% block subtitle %}Example{% endblock subtitle %}
 {% block main %}
 <section>
 
@@ -10,4 +11,5 @@
     >Increment {{ count }}</a>
 
 </section>
+{% include "_add_sources.html" %}
 {% endblock %}

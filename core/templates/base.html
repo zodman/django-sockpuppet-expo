@@ -6,7 +6,6 @@
 <head>
     <link rel="icon" href="https://via.placeholder.com/70x70">
 <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-
     <style>{% pygments_css %}</style>  <!-- load css for pygments -->
 
 
@@ -19,7 +18,21 @@
 </head>
 
 <body>
+    <header>
+        <nav class="mb-0">
+            <img class="m-0" src="https://i.imgur.com/i4TjAVus.png" alt=""/>
+        <ul>
+            <li><a href="{%url 'index' %}">Index </a></li>
+        </ul>
+        </nav>
+        <h1>
+            django-sockpuppet Expo
+        </h1>
+        <h2> {% block subtitle %} {% endblock subtitle %}</h2>
+    </header>
+
     <main>
+        <hr>
  	{% block main %}
 	{% endblock %}
 

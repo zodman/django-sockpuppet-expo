@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load pygmentize %}
 {% block main %}
 
 
@@ -46,12 +45,7 @@
             </table>
         </div>
     </form>
-{% for file in files %}
-    <details>
-            <summary>{{file.name}}</summary>
-    {{file.src|pygmentize:file.type}}
-    </details>
-{% endfor %}
+{% include "_add_sources.html" %}
 
 </div>
 {% endblock  %}
