@@ -6,7 +6,6 @@ class BookSearch(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["book_count"] = 0
         return context
 
 book_search = BookSearch.as_view()

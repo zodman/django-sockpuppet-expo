@@ -8,5 +8,6 @@ import core.views.book_search
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', core.views.book_search.book_search)
+    path('book-search/', core.views.book_search.book_search),
+    path('example/', core.views.example.example),
 ] + staticfiles_urlpatterns()

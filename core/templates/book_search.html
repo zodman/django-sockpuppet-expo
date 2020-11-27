@@ -3,7 +3,7 @@
 
 {% block main %}
   
-<section data-controller="book-search" data-reflex-root="#morph">
+<div data-controller="book-search" data-reflex-root="#morph">
     <form>
         <input type="text" 
              placeholder="search for a book ..."
@@ -16,11 +16,11 @@
                   Searching for books...
                 </span>
                 <span data-target="book-search.count" class="">
-                    <strong>{{book_count}}</strong> books found
+                    <strong>{{books|length}}</strong> books found
                 </span>
             </header>
 
-            <table data-target="book-search.list">
+            <table data-target="book-search.list" {% if  not books %} hidden {% endif %}>
               <thead>
                 <tr>
                   <th scope="col">Subject</th>
@@ -33,17 +33,17 @@
               <tbody>
                   {% for book in books  %}
                 <tr>
-                    <td>{{book.subject}}</td>
-                    <td>{{book.title}}</td>
-                    <td>{{book.author_name}}</td>
-                    <td>{{book.first_publish_year}}</td>
-                    <td>{{book.isbn}}</td>
+                    <td>{{book.subject|join:', '|truncatechars:10}} </td>
+                    <td>{{book.title|truncatechars:30}}</td>
+                    <td>{{book.author_name|join:', '|truncatechars:30}}</td>
+                    <td>{{book.publish_year.0 }}</td>
+                    <td>{{book.isbn.0|truncatechars:5}}</td>
                 </tr>
                   {% endfor %}
               </tbody>
             </table>
         </div>
     </form>
-</section>
+</div>
 
 {% endblock  %}
