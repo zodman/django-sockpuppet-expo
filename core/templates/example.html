@@ -1,12 +1,15 @@
-
+{% extends 'base.html' %}
 {% load static %}
-<body>
-    
-    <script src="{% static 'js/example.js' %}"></script>
+{% block main %}
+    <script src="{% static 'dist/js/example.js' %}"></script>
+
+<section>
 
     <a  href="#"
         data-controller="example"
         data-action="click->example#increment"
         data-count="{{ count }}"
     >Increment {{ count }}</a>
-</body>
+
+</section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block main %}
+  
+<section data-controller="book-search" data-reflex-root="#morph">
+    <form>
+        <input type="text" 
+             placeholder="search for a book ..."
+             data-target="book-search.query"
+             data-action="debounced:input->book-search#perform"/>
+        <div id="morph">
+            <header>
+                <span data-target="book-search.activity" class="" hidden>
+                  <i class="fas fa-spinner fa-spin"></i>
+                  Searching for books...
+                </span>
+                <span data-target="book-search.count" class="">
+                    <strong>{{book_count}}</strong> books found
+                </span>
+            </header>
+
+            <table data-target="book-search.list">
+              <thead>
+                <tr>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Publish Date</th>
+                  <th scope="col">ISBN</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for book in books  %}
+                      
+                <tr>
+                    <td>{{book.subject}}</td>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author_name}}</td>
+                    <td>{{book.first_publish_year}}</td>
+                    <td>{{book.isbn}}</td>
+                </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    </form>
+</section>
+
+{% endblock  %}

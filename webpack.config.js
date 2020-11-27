@@ -21,12 +21,12 @@ const config = {
     mode: process.env.NODE_ENV,
     entry: entryObj,
     output: {
-        path: __dirname + '/dist/js',
+        path: __dirname + '/core/static/dist/js',
         filename: '[name].js'
     },
     optimization: {
         minimize: false
     }
 }
-
+console.log(config);
 module.exports = config

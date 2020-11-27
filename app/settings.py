@@ -132,6 +132,3 @@ CHANNEL_LAYERS = {
 
 ASGI_APPLICATION = 'sockpuppet.routing.application'
 
-STATICFILES_DIRS = [
-        ("js", "/dist/js"),
-]

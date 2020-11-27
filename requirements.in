@@ -1,3 +1,4 @@
 django
-django-socketpuppet
+django-sockpuppet
 django-seed
+requests
