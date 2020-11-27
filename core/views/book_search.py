@@ -8,6 +8,7 @@ class BookSearch(MixinBase, TemplateView):
         ('core/reflexes/book_search_reflex.py', 'python3'),
         ('core/views/book_search.py', 'python3'),
         ('core/javascript/controllers/book_search_controller.js', 'typescript'),
+        ('core/templates/book_search.html', 'htmldjango'),
     )
 
 book_search = BookSearch.as_view()

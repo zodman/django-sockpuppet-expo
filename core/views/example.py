@@ -8,6 +8,7 @@ class ExampleView(MixinBase, TemplateView):
         ('core/views/example.py', 'python3'),
         ('core/reflexes/example_reflex.py', 'python3'),
         ('core/javascript/controllers/example_controller.js', 'typescript'),
+        ('core/templates/example.html', 'htmldjango'),
     )
 
     def get_context_data(self, *args, **kwargs):

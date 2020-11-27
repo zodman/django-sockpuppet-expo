@@ -1,23 +1,22 @@
 {% extends "base.html" %}
+{% load humanize %}
+{% block subtitle %}Search Book{% endblock subtitle %}
 {% block main %}
-
-
-
 <div data-controller="book-search" data-reflex-root="#morph">
     <form>
-        <input type="text" 
+        <input type="text"
              placeholder="search for a book ..."
              data-target="book-search.query"
              data-action="debounced:input->book-search#perform"/>
         <div id="morph">
             <div>
-                
+
                 <span data-target="book-search.activity" class="" hidden>
                   <i class="fas fa-spinner fa-spin"></i>
                   Searching for books...
                 </span>
                 <span data-target="book-search.count" class="">
-                    <strong>{{books|length}}</strong> books found
+                    <strong>{{count|default:0|intcomma}}</strong> books found
                 </span>
             </div>
 
