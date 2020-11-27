@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-
-
+{% load pygmentize %}
 {% block main %}
-  
+
+
+
 <div data-controller="book-search" data-reflex-root="#morph">
     <form>
         <input type="text" 
@@ -10,7 +11,8 @@
              data-target="book-search.query"
              data-action="debounced:input->book-search#perform"/>
         <div id="morph">
-            <header>
+            <div>
+                
                 <span data-target="book-search.activity" class="" hidden>
                   <i class="fas fa-spinner fa-spin"></i>
                   Searching for books...
@@ -18,7 +20,7 @@
                 <span data-target="book-search.count" class="">
                     <strong>{{books|length}}</strong> books found
                 </span>
-            </header>
+            </div>
 
             <table data-target="book-search.list" {% if  not books %} hidden {% endif %}>
               <thead>
@@ -31,7 +33,7 @@
                 </tr>
               </thead>
               <tbody>
-                  {% for book in books  %}
+                  {% for book in books|slice:'0:5'  %}
                 <tr>
                     <td>{{book.subject|join:', '|truncatechars:10}} </td>
                     <td>{{book.title|truncatechars:30}}</td>
@@ -44,6 +46,12 @@
             </table>
         </div>
     </form>
-</div>
+{% for file in files %}
+    <details>
+            <summary>{{file.name}}</summary>
+    {{file.src|pygmentize:file.type}}
+    </details>
+{% endfor %}
 
+</div>
 {% endblock  %}

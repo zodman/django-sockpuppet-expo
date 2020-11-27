@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'channels',
     'sockpuppet',
     'core',
+    'pygments_renderer',
 ]
 
 MIDDLEWARE = [
