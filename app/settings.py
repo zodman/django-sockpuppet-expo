@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'sockpuppet',
     'core',
     'pygments_renderer',
+    'django_webserver',
 ]
 
 MIDDLEWARE = [

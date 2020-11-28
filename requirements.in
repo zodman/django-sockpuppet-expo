@@ -3,3 +3,5 @@ django-sockpuppet
 django-seed
 requests
 django-pygments-renderer
+django-webserver[gunicorn]
+django-webserver[daphne]

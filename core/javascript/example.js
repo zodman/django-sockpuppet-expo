@@ -12,7 +12,7 @@ debounced.initialize()
 //TurboLinks.start()
 
 const application = Application.start()
-const consumer = new WebsocketConsumer('ws://localhost:8000/ws/sockpuppet-sync')
+const consumer = new WebsocketConsumer('ws://localhost:9000/ws/sockpuppet-sync')
 
 application.register("example", ExampleController)
 application.register("book-search", BookSearchController)
