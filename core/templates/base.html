@@ -1,51 +1,54 @@
 {% load static pygmentize %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" href="https://via.placeholder.com/70x70">
-    <link rel="stylesheet" href="https://unpkg.com/mvp.css">
-    <style>{% pygments_css %}</style>  <!-- load css for pygments -->
-    <meta charset="utf-8">
-    <meta name="description" content="My description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expo</title>
-    <script src="{% static 'dist/js/example.js' %}"></script>
+  <link rel="icon" href="https://via.placeholder.com/70x70">
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <style>{% pygments_css %}</style> <!-- load css for pygments -->
+  <meta charset="utf-8">
+  <meta name="description" content="My description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expo</title>
+  <script src="{% static 'dist/js/example.js' %}"></script>
 </head>
 
-<body>
-    <header style="padding-bottom:0px;">
-        <nav style="margin-bottom:0px;">
-            <h1>
-            <a href="/"> django-sockpuppet Expo </a>
-            </h1>
+<body class="min-vh-100">
+
+  <header class="flex py-1">
+    <img
+      src="https://i.imgur.com/FX0KFM7m.jpg"
+      style="filter: grayscale(0.9) contrast(1.2); height: 4rem;" alt="" />
+      <h1 class="leading-none m-0 pl-1 self-center">
+        <a href="{% url 'index' %}">Sockpuppet</a>
+      </h1>
+  </header>
+  <hr>
+  <flex-container>
+    <aside class="border-right pr-2">
+      <nav>
         <ul>
-            <li><a href="{%url 'index' %}">Index</a></li>
-            <li><a>Demos </a>
-                <ul>
-                    <li><a href="{%url 'example' %}">Example</a></li>
-                    <li><a href="{%url 'book_search' %}">BookSearch</a></li>
-
-                </ul>
-            </li>
+          <li><a href="{% url 'example' %}">Example</a></li>
+          <li><a href="{% url 'book_search' %}">BookSearch</a></li>
         </ul>
-        </nav>
-        <h2> {% block subtitle %}
-                <img src="https://i.imgur.com/FX0KFM7m.jpg" alt=""/>
-            {% endblock subtitle %}</h2>
-    </header>
-
+      </nav>
+    </aside>
     <main>
-        <hr style="margin-top:0px;">
- 	{% block main %}
-	{% endblock %}
-
+      <h2> {% block subtitle %}<h1>Django Sockpuppet</h1>{% endblock subtitle %}</h2>
+      {% block main %}
+      {% endblock %}
     </main>
-    <footer>
-        <p>
-        by <a href="https://twitter.com/zodman">@zodman</a>
-        </p>
-        <a href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangosite80x15.gif" border="0" alt="A Django site." title="A Django site." /></a>
-    </footer>
+  </flex-container>
+  <footer>
+    <p>
+      by <a href="https://twitter.com/zodman">@zodman</a>
+    </p>
+    <a href="http://www.djangoproject.com/"><img src="https://www.djangoproject.com/m/img/badges/djangosite80x15.gif"
+        border="0" alt="A Django site." title="A Django site." /></a>
+  </footer>
 </body>
 
 </html>
