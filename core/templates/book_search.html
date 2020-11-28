@@ -31,13 +31,13 @@
                 </tr>
               </thead>
               <tbody>
-                  {% for book in books|slice:'0:5'  %}
+                  {% for book in books|slice:'0:10'  %}
                 <tr>
-                    <td>{{book.subject|join:', '|truncatechars:10}} </td>
+                    <td>{{book.subject|join:', '|truncatechars:40}} </td>
                     <td>{{book.title|truncatechars:30}}</td>
                     <td>{{book.author_name|join:', '|truncatechars:30}}</td>
                     <td>{{book.publish_year.0 }}</td>
-                    <td>{{book.isbn.0|truncatechars:5}}</td>
+                    <td>{{book.isbn.0|truncatechars:30}}</td>
                 </tr>
                   {% endfor %}
               </tbody>

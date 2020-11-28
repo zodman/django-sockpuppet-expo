@@ -1,3 +1,7 @@
+:root {
+    --justify-important: left;
+}
+
 header {
     padding-top: 0;
     margin-left: 0.5rem;
@@ -19,9 +23,27 @@ footer {
     right: 0;
     left: 0;
 }
+
+footer,
+header,
+main {
+    margin: 0 auto;
+    max-width: var(--width-content);
+    padding: 0rem 2rem;
+}
+
 hr { margin-top: 0; margin-bottom: 0; }
 h1 { font-family: 'Open Sans', sans-serif; }
 nav ul li { display: block; }
+
+table {
+    width: 100%;
+    display: inline-table;
+}
+
+form {
+    max-width: 100%;
+}
 
 .min-vh-100 {
     min-height: 100vh !important;
@@ -29,6 +51,7 @@ nav ul li { display: block; }
 
 flex-container { display: flex; }
 .flex { display: flex; }
+.flex-grow { flex-grow: 1; }
 .self-center { align-self: center; }
 .leading-none { line-height: 1; }
 .m-0 { margin: 0; }
