@@ -28,5 +28,5 @@ const config = {
         minimize: true
     }
 }
-console.log(config);
+//console.log(config);
 module.exports = config
