@@ -12,7 +12,8 @@ debounced.initialize()
 //TurboLinks.start()
 
 const application = Application.start()
-const consumer = new WebsocketConsumer('ws://localhost:9000/ws/sockpuppet-sync')
+const ssl = location.protocol !== 'https:' ? '' : 's';
+const consumer = new WebsocketConsumer(`ws${ssl}://${location.hostname}:${location.port}/ws/sockpuppet-sync`)
 
 application.register("example", ExampleController)
 application.register("book-search", BookSearchController)
