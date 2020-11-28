@@ -2,6 +2,7 @@ django
 django-sockpuppet
 requests
 django-pygments-renderer
+django-widget-tweaks
 
 # deployment
 fabric
