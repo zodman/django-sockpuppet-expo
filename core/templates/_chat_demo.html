@@ -14,10 +14,10 @@
       {% endfor %}
     </span>
     <form>
-      <textarea data-target="chat.input" placeholder="Type your message.."></textarea>
+      <textarea data-target="chat.input" placeholder="Type your message.." minlength="4"></textarea>
       <button data-action="click->chat#post" type="submit"> Send </button>
       <div>
-      <small>Message storage on <a href="https://docs.djangoproject.com/en/3.1/topics/cache/#local-memory-caching">LocMemCache</a></small>
+        <small>Messages stored {{count}} of {{total}}</small>
       </div>
     </form>
 </article>

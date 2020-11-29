@@ -16,3 +16,5 @@ def deploy(ctx):
             ctx.run('python -m pip install -r requirements.in')
             ctx.run('python3.8 manage.py migrate')
     ctx.run("sudo supervisorctl restart expo:*")
+
+
