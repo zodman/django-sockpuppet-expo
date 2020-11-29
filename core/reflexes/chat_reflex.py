@@ -9,13 +9,13 @@ class ChatReflex(Reflex):
         chats = cache.get("chats", [])
         chats.append({
             'message': message,
-            'message_id': message_id,
+            'messageId': message_id,
             'created_at': timezone.now()
         })
         cache.set("chats", chats)
-        channel = Channel("chat")
+        channel = Channel("ChatChannel")
         channel.dispatch_event({
             'name': 'chats:added',
-            'detail': {'messagre_id': message_id}
+            'detail': {'messageId': message_id}
         })
         channel.broadcast()

@@ -27,8 +27,6 @@ footer {
 footer,
 header,
 main {
-    margin: 0 auto;
-    max-width: var(--width-content);
     padding: 0rem 2rem;
 }
 

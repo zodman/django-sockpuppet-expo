@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   beforeReflex (element, reflex) {
-      console.log("beforeReflex")
+    console.log("beforeReflex")
     document
       .querySelectorAll('[data-activity-indicator]')
       .forEach(el => (el.hidden = false))

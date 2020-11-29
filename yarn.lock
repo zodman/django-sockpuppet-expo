@@ -9,7 +9,7 @@
 
 "@rails/ujs@^6.0.3-4":
   version "6.0.3-4"
-  resolved "https://nexus.gcds.coke.com/repository/npm-group/@rails/ujs/-/ujs-6.0.3-4.tgz#8dafc84178080f9c4f21076953ea1d0dc0bfe0fc"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.3-4.tgz#8dafc84178080f9c4f21076953ea1d0dc0bfe0fc"
   integrity sha512-pNEEndJYNMCYEZG79MkoMc40AYKBfm0md8pawJ/SUu/1aIhToJcKu+9hHT/7WMLudsakOgC/C8KKFuZOs4QTgw==
 
 "@stimulus/core@^1.1.1":
