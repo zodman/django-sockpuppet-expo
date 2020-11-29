@@ -19,6 +19,7 @@ export default class extends ApplicationController {
   }
 
   post (event) {
+    console.log("post");
     Rails.stopEverything(event)
     lastMessageId = Math.random()
     this.stimulate(

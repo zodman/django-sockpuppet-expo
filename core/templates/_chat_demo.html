@@ -4,9 +4,9 @@
     data-action="chats:added@document->chat#reload cable-ready:after-morph@document->chat#scroll">
     <span data-target="chat.list">
       {% for chat in chats  %}
-        <aside class="message" style="min-height:auto;">
+        <aside class="message" style="min-height:auto; margin-top: 15px;">
           <p>
-          {{chat.message}}
+          {{chat.message}} <sup>{{chat.created_at|timesince}} ago </sup>
           </p>
         </aside>
       {% endfor %}
@@ -14,6 +14,8 @@
     <form>
       <textarea data-target="chat.input" placeholder="Type your message.."></textarea>
       <button data-action="click->chat#post" type="submit"> Send </button>
-      
+      <div>
+      <small>Message storage on <a href="https://docs.djangoproject.com/en/3.1/topics/cache/#local-memory-caching">LocMemCache</a></small>
+      </div>
     </form>
 </article>
