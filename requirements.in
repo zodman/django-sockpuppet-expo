@@ -3,12 +3,16 @@ django-sockpuppet
 requests
 django-pygments-renderer
 django-widget-tweaks
-whitenoise
+django-redis
 
 # deployment
 fabric
 patchwork
 gunicorn
+whitenoise
 
 # test
 django-seed
+
+
+

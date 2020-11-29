@@ -130,3 +130,9 @@ CHANNEL_LAYERS = {
 }
 ASGI_APPLICATION = 'sockpuppet.routing.application'
 WSGI_APPLICATION = 'app.wsgi.application'
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
