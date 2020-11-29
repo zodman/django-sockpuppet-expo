@@ -16,6 +16,7 @@ export default class extends ApplicationController {
   connect () {
     super.connect()
     this.scroll(100)
+    this.reload(this)
   }
 
   post (event) {

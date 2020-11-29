@@ -4,7 +4,7 @@
       <summary>{{ filetype }}</summary>
       {% for file in filenames %}
         <br>
-        {{ file.filename }}  (LOC {{ file.loc }})
+        {{ file.filename }}  <small>(LOC {{ file.loc }})</small>
         {{ file.src|pygmentize:file.pygment_type }}
       {% endfor %}
     </details>
