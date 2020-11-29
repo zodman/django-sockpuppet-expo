@@ -3,7 +3,7 @@ from .mixins import MixinBase
 
 class ChatView(MixinBase, TemplateView):
     demo_template = '_chat_demo.html'
-    subtitle = 'Increment'
+    subtitle = 'Chat'
     files = (
         ('core/views/chat.py', 'python', 'python3'),
         ('core/reflexes/chat_reflex.py', 'python', 'python3'),
@@ -13,7 +13,7 @@ class ChatView(MixinBase, TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['count'] = self.request.session.get("count", 0)
+        context['chats'] = [dict(message='message1')]
         return context
 
 chat = ChatView.as_view()

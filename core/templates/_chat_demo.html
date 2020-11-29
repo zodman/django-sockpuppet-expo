@@ -1,1 +1,19 @@
-chat demo
+
+<article id="red"
+    data-controller="chat" 
+    data-action="chats:added@document->chat#reload cable-ready:after-morph@document->chat#scroll">
+    <span data-target="chat.list">
+      {% for chat in chats  %}
+        <aside class="message" style="min-height:auto;">
+          <p>
+          {{chat.message}}
+          </p>
+        </aside>
+      {% endfor %}
+    </span>
+    <form>
+      <textarea data-target="chat.input" placeholder="Type your message.."></textarea>
+      <button data-action="click->chat#post" type="submit"> Send </button>
+      
+    </form>
+</article>
