@@ -45,6 +45,7 @@ export default class extends ApplicationController {
   }
 
   reload (event) {
+    if (!event.detail) return
     const { messageId } = event.detail
     if (messageId === lastMessageId) return
     debouncedReload(this)

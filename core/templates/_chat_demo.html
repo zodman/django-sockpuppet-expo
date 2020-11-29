@@ -1,12 +1,14 @@
 
 <article id="red"
-    data-controller="chat" 
-    data-action="chats:added@document->chat#reload cable-ready:after-morph@document->chat#scroll">
-    <span data-target="chat.list">
+    data-controller="chat"
+    data-action="chats:added@document->chat#reload cable-ready:after-morph@document->chat#scroll"
+    data-reflex-root="#chat-container"
+    >
+    <span id="chat-container" data-target="chat.list">
       {% for chat in chats  %}
         <aside class="message" style="min-height:auto; margin-top: 15px;">
           <p>
-          {{chat.message}} <sup>{{chat.created_at|timesince}} ago </sup>
+          {{ chat.message }} <sup>{{ chat.created_at|timesince }} ago </sup>
           </p>
         </aside>
       {% endfor %}
