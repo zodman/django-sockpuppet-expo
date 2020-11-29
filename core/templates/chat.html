@@ -1,0 +1,12 @@
+
+{% load static %}
+<body>
+    
+    <script src="{% static 'js/chat.js' %}"></script>
+
+    <a  href="#"
+        data-controller="chat"
+        data-action="click->chat#increment"
+        data-count="{{ count }}"
+    >Increment {{ count }}</a>
+</body>

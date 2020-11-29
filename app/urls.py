@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 
 import core.views.example
 import core.views.book_search
+import core.views.chat
 
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path('book-search/', core.views.book_search.book_search,
          name='book_search'),
     path('example/', core.views.example.example, name='example'),
+    path('chat/', core.views.chat.chat, name='chat'),
 ] + staticfiles_urlpatterns()
