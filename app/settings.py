@@ -21,13 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^ar@p4e$sdqoa*=gd)*(e*(+&k3rv#x_*v5w*wb9+ef@097-fd'
+SECRET_KEY = os.environ.get('SECRET_KEY', "a-not-so-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = os.environ.get('DEBUG', True)
 ALLOWED_HOSTS = ['*', ]
-
 
 # Application definition
 
@@ -48,6 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -73,9 +72,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'app.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -115,9 +111,7 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -125,14 +119,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / "static"
 
 CHANNEL_LAYERS = {
-        "default": {
-                    "BACKEND": "channels.layers.InMemoryChannelLayer"
-                }
+    "default": {
+        # IMPORTANT, do not ever use this in a production environment
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
 }
-
-
 ASGI_APPLICATION = 'sockpuppet.routing.application'
-
+WSGI_APPLICATION = 'app.wsgi.application'

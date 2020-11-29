@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block subtitle %}{{ subtitle }}{% endblock subtitle %}
+{% block main %}
+<div>
+  {% include demo_template %}
+  {% include "_add_sources.html" %}
+</div>
+{% endblock  %}

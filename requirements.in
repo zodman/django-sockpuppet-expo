@@ -3,6 +3,7 @@ django-sockpuppet
 requests
 django-pygments-renderer
 django-widget-tweaks
+whitenoise
 
 # deployment
 fabric
