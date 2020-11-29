@@ -1,0 +1,69 @@
+:root {
+    --justify-important: left;
+}
+
+header {
+    padding-top: 0;
+    margin-left: 0.5rem;
+}
+html {
+    font-size: 10px;
+}
+body {
+    font-size: 1.6rem;
+    height: 100%;
+    padding: 0;
+}
+aside {
+    padding: 0.5rem;
+    min-height: calc(100vh - 200px);
+}
+footer {
+    position: fixed;
+    right: 0;
+    left: 0;
+}
+
+footer,
+header,
+main {
+    margin: 0 auto;
+    max-width: var(--width-content);
+    padding: 0rem 2rem;
+}
+
+hr { margin-top: 0; margin-bottom: 0; }
+h1 { font-family: 'Open Sans', sans-serif; }
+nav ul li { display: block; }
+
+table {
+    width: 100%;
+    display: inline-table;
+}
+
+form {
+    max-width: 100%;
+}
+
+.min-vh-100 {
+    min-height: 100vh !important;
+}
+
+flex-container { display: flex; }
+.flex { display: flex; }
+.flex-grow { flex-grow: 1; }
+.self-center { align-self: center; }
+.leading-none { line-height: 1; }
+.m-0 { margin: 0; }
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 1rem; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-battam: 1rem; }
+.pl-1 { padding-left: 1rem; }
+.pr-2 { padding-right: 2rem; }
+.py--5 { padding-top: 0.5rem; padding-bottom: 0.5rem;}
+.py-1 { padding-top: 1rem; padding-bottom: 1rem;}
+
+.border-right {
+    border-right: 1px #AAA solid;
+}
