@@ -7,7 +7,8 @@ from django.utils import timezone
 class ChatReflex(Reflex):
     def post(self, color, message, message_id):
         chats = cache.get("chats", [])
-        if len(chats) > 100:
+        self.total = 100
+        if len(chats) > self.total:
             chats = []
         if message:
             chats.append({

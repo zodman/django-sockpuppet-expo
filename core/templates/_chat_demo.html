@@ -17,7 +17,7 @@
       <textarea data-target="chat.input" placeholder="Type your message.." minlength="4"></textarea>
       <button data-action="click->chat#post" type="submit"> Send </button>
       <div>
-        <small>Messages stored {{count}} of {{total}}</small>
+        <small>Messages stored {{chats|length}} of {{total}}</small>
       </div>
     </form>
 </article>
