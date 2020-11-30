@@ -9,7 +9,7 @@ exclude_dirs = [".git", "node_modules", ".cache", ".github", "db.sqlite3"]
 @task
 def deploy(ctx):
     local("yarn build", echo=True)
-    local("python manage.py collectstatic --noinput", echo=True)
+    local("python manage.py collectstatic --noinput --clear", echo=True)
     rsync(ctx, "static/", "apps/django-sockpuppet-expo/static/",
           exclude=exclude_dirs)
     with ctx.cd("~/apps/django-sockpuppet-expo"):
