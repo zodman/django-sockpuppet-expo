@@ -1,5 +1,7 @@
 # Django sockpuppet expo
 
+[expo](https://django-sockpuppet-expo.python3.ninja)
+
 ## Running locally
 
 ```
