@@ -21,6 +21,7 @@ consumer.subscriptions.create('ChatChannel', {
     if (data.cableReady) CableReady.perform(data.operations)
   }
 })
+ 
 
 application.register("example", ExampleController)
 application.register("book-search", BookSearchController)

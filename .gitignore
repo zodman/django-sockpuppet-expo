@@ -156,3 +156,4 @@ node_modules
 /core/static/dist
 django-sockpuppet
 .env/
+webpack-stats.json

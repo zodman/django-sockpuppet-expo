@@ -1,4 +1,4 @@
-{% load static pygmentize %}
+{% load static pygmentize webpack_loader %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +14,10 @@
   <meta name="description" content="My description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expo</title>
+  {% render_bundle 'example' %}
+  {% comment %}
   <script src="{% static 'dist/js/example.js' %}"></script>
+  {% endcomment %} 
 </head>
 
 <body class="min-vh-100">

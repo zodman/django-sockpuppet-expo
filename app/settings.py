@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'pygments_renderer',
     'widget_tweaks',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -172,6 +173,16 @@ LOGGING = {
         }
     }
 }
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'BUNDLE_DIR_NAME': 'dist/js/',
+        'CACHE': not DEBUG
+    }
+}
+
+
 try:
     from .local_settings import *
 except ImportError:
