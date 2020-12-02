@@ -12,6 +12,7 @@ def deploy(ctx):
     local("python manage.py collectstatic --noinput --clear", echo=True)
     rsync(ctx, "static/", "apps/django-sockpuppet-expo/static/",
           exclude=exclude_dirs)
+    rsync(ctx, "webpack-stats.json", "apps/django-sockpuppet-expo/")
     with ctx.cd("~/apps/django-sockpuppet-expo"):
         ctx.run('git pull')
         with ctx.prefix("source .env/bin/activate"):

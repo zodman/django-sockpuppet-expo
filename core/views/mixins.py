@@ -59,3 +59,12 @@ class ChatMixin(MixinBase):
         ('core/templates/_chat_demo.html', 'html', 'htmldjango'),
     )
 
+class CalendarMixin(MixinBase):
+    files = (
+        ('core/views/calendar.py', 'python', 'python3'),
+#        ('core/reflexes/calendar_reflex.py', 'python', 'python3'),
+#        ('core/javascript/controllers/calendar_controller.js', 'javascript', 'javascript'),
+        ('core/templates/_calendar.html', 'html', 'htmldjango'),
+        ('core/templates/_td_calendar.html', 'html', 'htmldjango'),
+ 
+    )
