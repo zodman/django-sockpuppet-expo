@@ -1,10 +1,10 @@
 from django.views.generic.base import TemplateView
 from django.template.loader import render_to_string
+from django import forms
 import calendar as calendarmod
 from datetime import date
 import datetime
 from .mixins import CalendarMixin
-
 
 
 class CustomCalendar(calendarmod.HTMLCalendar):
@@ -16,20 +16,25 @@ class CustomCalendar(calendarmod.HTMLCalendar):
 
     def formatday(self, day, weekday):
         context = {
-            'day': day,
-            'date': date(self.year, self.month, day) if day > 0 else None,
-            'css_class': self.cssclass_noday if day == 0 else self.cssclasses[weekday],
-            'calendar_events': self.events,
-            'now': date.today()
+            "day": day,
+            "date": date(self.year, self.month, day) if day > 0 else None,
+            "css_class": self.cssclass_noday if day == 0 else self.cssclasses[weekday],
+            "calendar_events": self.events,
+            "now": date.today(),
         }
-        return render_to_string('_td_calendar.html', context)
+        return render_to_string("_td_calendar.html", context)
+
+
+class FormEvent(forms.Form):
+    hour = forms.TimeField(label="Hour & minute")
+    description = forms.CharField(widget=forms.TextInput())
 
 
 class CalendarView(CalendarMixin, TemplateView):
-    demo_template = '_calendar.html'
-    subtitle = 'Calendar'
+    demo_template = "_calendar.html"
+    subtitle = "Calendar"
 
-    def get_context_data(self,**kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         date_str = self.request.GET.get("date", "")
         if date_str:
@@ -37,18 +42,21 @@ class CalendarView(CalendarMixin, TemplateView):
         else:
             today = date.today()
         events = [
-                {'date': today, 'description': 'lorem ipsum'},
-                {'date': date(2020,12,9), 'description': 'lorem ipsum'},
-                {'date': date(2020,12,9), 'description': 'lorem ipsum'},
-                {'date': date(2020,12,13), 'description': 'lorem ipsum'},
-                {'date': date(2020,12,15), 'description': 'lorem ipsum'},
-                {'date': date(2020,12,15), 'description': 'lorem ipsum'},
-                {'date': date(2020,12,15), 'description': 'lorem ipsum'}
-                 ]
-        context["calendar"] = CustomCalendar().formatmonth(today.year,today.month, events=events)
+            # {"date": today, "description": "lorem ipsum"},
+            # {"date": date(2020, 12, 9), "description": "lorem ipsum"},
+            # {"date": date(2020, 12, 9), "description": "lorem ipsum"},
+            # {"date": date(2020, 12, 13), "description": "lorem ipsum"},
+            # {"date": date(2020, 12, 15), "description": "lorem ipsum"},
+            # {"date": date(2020, 12, 15), "description": "lorem ipsum"},
+            # {"date": date(2020, 12, 15), "description": "lorem ipsum"},
+        ]
+        context["calendar"] = CustomCalendar().formatmonth(
+            today.year, today.month, events=events
+        )
         context["next_month_date"] = today + datetime.timedelta(days=30)
         context["prev_month_date"] = today + datetime.timedelta(days=-30)
+        context["form"] = FormEvent()
         return context
 
-calendar = CalendarView.as_view()
 
+calendar = CalendarView.as_view()

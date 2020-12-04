@@ -1,0 +1,27 @@
+<td class="{{css_class}}" data-reflex="click->CalendarReflex#new_calendar_event" data-date='{{date|date:'c'}}'>
+  <span class="lead">{{day}}</span>
+  {% if day and date|date:'c' == now|date:'c' %}
+  <i class="fa fa-circle" aria-hidden="true" style='color:green'></i>
+  {% endif %}
+  <div style="height:65px; overflow-y:scroll"
+    data-controller="application"
+    data-action="click->application#default_refrex"
+    >
+    {% for calendar_event in calendar_events  %}
+      {% if calendar_event.date|date:'c' == date|date:'c' %}
+      <div>
+        <a href="#" 
+           {#     data-refrex="click->CalendarReflex#destroy_calendar_event" #}
+          data-id="{{calendar_event.id}}">
+          x
+        </a>
+          <small>
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            {{calendar_event.date}}<br>
+          </small>
+          {{calendar_event.description|truncatechars:24}}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</td>

@@ -1,4 +1,4 @@
-//import Turbolinks from 'turbolinks'
+import Turbolinks from 'turbolinks'
 import { Controller } from 'stimulus'
 import StimulusReflex from 'stimulus_reflex'
 
@@ -19,6 +19,6 @@ export default class extends Controller {
   }
 
   reload () {
- //   Turbolinks.visit(location.href)
+    Turbolinks.visit(location.href)
   }
 }

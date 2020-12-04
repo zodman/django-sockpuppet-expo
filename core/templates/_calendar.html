@@ -1,0 +1,30 @@
+<div>
+  <a href="?date={{prev_month_date|date:'c'}}">Prev</a>
+  <a href="?date={{next_month_date|date:'c'}}">Next</a>
+  Month
+</div>
+
+<div hidden data-activity-indicator>
+    <i class="fas fa-spinner fa-spin"></i>
+    <span>Loading...</span>
+</div>
+
+{{calendar|safe}}
+
+<input class="checker" type="checkbox" id="o" hidden>
+
+<div class="modal">
+  <div class="modal-body">
+    <div class="modal-content">
+      <form data-action="ajax:success->application#reload"
+            data-controller="application"
+        >
+        {{form}}
+        <button type="submit"> Send </button>
+		</form>
+	</div>
+    <div class="modal-footer" data-reflex="click->CalendarReflex#default_reflex">
+			close
+    </div>
+  </div>
+</div>

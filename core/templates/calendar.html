@@ -1,0 +1,12 @@
+
+{% load static %}
+<body>
+    
+    <script src="{% static 'js/calendar.js' %}"></script>
+
+    <a  href="#"
+        data-controller="calendar"
+        data-action="click->calendar#increment"
+        data-count="{{ count }}"
+    >Increment {{ count }}</a>
+</body>
