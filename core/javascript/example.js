@@ -29,6 +29,6 @@ application.register("example", ExampleController)
 application.register("book-search", BookSearchController)
 application.register("chat", ChatController)
 application.register("calendar", CalendarController)
-application.register("application",ApplicationController)
+application.register("application", ApplicationController)
 
 StimulusReflex.initialize(application, { consumer, debug: true })

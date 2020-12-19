@@ -1,7 +1,7 @@
 <td class="{{css_class}}" data-reflex="click->CalendarReflex#new_calendar_event" data-date='{{date|date:'c'}}'>
   <span class="lead">{{day}}</span>
   {% if day and date|date:'c' == now|date:'c' %}
-  <i class="fa fa-circle" aria-hidden="true" style='color:green'></i>
+    <i class="fa fa-circle" aria-hidden="true" style='color:green'></i>
   {% endif %}
   <div style="height:65px; overflow-y:scroll"
     data-controller="application"
