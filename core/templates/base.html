@@ -4,11 +4,11 @@
 
 <head>
   <link rel="icon" href="https://via.placeholder.com/70x70">
-  <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'css/custom_styles.css' %}">
   <style>{% pygments_css %}</style> <!-- load css for pygments -->
   <meta charset="utf-8">
   <meta name="description" content="My description">
@@ -17,7 +17,7 @@
   {% render_bundle 'example' %}
   {% comment %}
   <script src="{% static 'dist/js/example.js' %}"></script>
-  {% endcomment %} 
+  {% endcomment %}
 </head>
 
 <body class="min-vh-100">
@@ -47,14 +47,14 @@
       {% endblock %}
     </main>
   </flex-container>
-  <footer>
+  <!-- <footer>
     <a href="https://github.com/zodman/django-sockpuppet-expo">
       <img src="https://img.shields.io/static/v1?label=github&message=django-sockpuppet-expo&logo=github">
     </a>
     <a href="https://github.com/zodman/django-socketpuppet-expo">
       <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/zodman/django-socketpuppet-expo?style=social">
     </a>
-  </footer>
+  </footer> -->
 </body>
 
 </html>

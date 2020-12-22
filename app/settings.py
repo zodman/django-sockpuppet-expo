@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'pygments_renderer',
     'widget_tweaks',
     'webpack_loader',
+    'tailwind',
+    'theme'
 ]
+
+TAILWIND_APP_NAME = 'theme'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
