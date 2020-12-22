@@ -7,5 +7,5 @@ class CalendarReflex(Reflex):
     def new_calendar_event(self):
         date_element = self.element.dataset["date"]
         occurs_at = datetime.date.fromisoformat(date_element)
-        self.calendar_event = CalendarEvent(occurs_at=occurs_at, description='lorem').save()
+        self.calendar_event = CalendarEvent(occurs_at=occurs_at, description='lorem')
 

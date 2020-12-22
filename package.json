@@ -16,7 +16,7 @@
     "path": "^0.12.7",
     "sockpuppet-js": "^0.3.4",
     "stimulus": "^1.1.1",
-    "stimulus_reflex": "^3.4.0-pre5",
+    "stimulus_reflex": "jonathan-s/stimulus_reflex#lifecycle-fix",
     "webpack": "^5.6.0",
     "webpack-cli": "^4.2.0"
   },

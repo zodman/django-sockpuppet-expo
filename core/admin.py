@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models.event import CalendarEvent
 
-# Register your models here.
+
+@admin.register(CalendarEvent)
+class CalendarEventAdmin(admin.ModelAdmin):
+    pass

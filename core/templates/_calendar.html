@@ -11,20 +11,52 @@
 
 {{calendar|safe}}
 
-<input class="checker" type="checkbox" id="o" hidden>
-
-<div class="modal">
-  <div class="modal-body">
+{% if calendar_event %}
+<div id="modal-thing" class="modal" style="display: block;">
+  <div class="modal-dialog pt-20">
     <div class="modal-content">
-      <form data-action="ajax:success->application#reload"
-            data-controller="application"
-        >
-        {{form}}
-        <button type="submit"> Send </button>
-		</form>
-	</div>
-    <div class="modal-footer" data-reflex="click->CalendarReflex#default_reflex">
-			close
+      <div class="modal-header">
+        <h5 class="modal-title" style="margin-top: 0px;">Some modal title</h5>
+        <div
+          class="cursor"
+          data-reflex="click->CalendarReflex#reload">
+        X
+        </div>
+      </div>
+      <form class="p-5">
+        <div data-reflex-permanent>
+          {{ form.event_hour.errors }}
+          <div class="btn-group" data-controller="calendar">
+            {{ form.event_hour }}
+            {% for hour in hours %}
+            <button
+              class="btn-primary btn {% if calendar_event.occurs_at|date:"g" == hour %}active{% endif %}"
+              data-action="click->calendar#select"
+            >{{ hour }}
+            </button>
+            {% endfor %}
+          </div>
+
+          <div class="btn-group btn mt-3" data-controller="calendar">
+            {{ form.event_meridian }}
+            <button class="btn-primary btn" data-action="click->calendar#select">AM</button>
+            <button class="btn-primary btn" data-action="click->calendar#select">PM</button>
+          </div>
+          <div class="mt-3">
+            {{ form.description }}
+          </div>
+        </div>
+
+        <button class="btn-primary btn mt-3" type="submit">Send</button>
+      </form>
     </div>
   </div>
+</div>
+{% endif %}
+
+<div
+  id="backdrop"
+  data-controller="calendar"
+  data-remove-classes=""
+>
 </div>

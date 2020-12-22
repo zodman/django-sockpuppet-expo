@@ -5,7 +5,7 @@ import calendar as calendarmod
 from datetime import date
 import datetime
 from .mixins import CalendarMixin
-
+from core.models.event import CalendarEvent
 
 class CustomCalendar(calendarmod.HTMLCalendar):
     def formatmonth(self, year, month, withyear=True, events=[]):
@@ -25,9 +25,14 @@ class CustomCalendar(calendarmod.HTMLCalendar):
         return render_to_string("_td_calendar.html", context)
 
 
+attrs = {
+    'data-target':'calendar.input',
+}
+
 class FormEvent(forms.Form):
-    hour = forms.TimeField(label="Hour & minute")
-    description = forms.CharField(widget=forms.TextInput())
+    event_hour = forms.CharField(widget=forms.HiddenInput(attrs=attrs))
+    event_meridian = forms.CharField(widget=forms.HiddenInput(attrs=attrs))
+    description = forms.CharField(widget=forms.Textarea())
 
 
 class CalendarView(CalendarMixin, TemplateView):
@@ -53,8 +58,10 @@ class CalendarView(CalendarMixin, TemplateView):
         context["calendar"] = CustomCalendar().formatmonth(
             today.year, today.month, events=events
         )
+        context['calendar_event'] = CalendarEvent()
         context["next_month_date"] = today + datetime.timedelta(days=30)
         context["prev_month_date"] = today + datetime.timedelta(days=-30)
+        context["hours"] = [str(i) for i in range(1, 13)]
         context["form"] = FormEvent()
         return context
 

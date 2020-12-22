@@ -8,7 +8,6 @@ export default class extends Controller {
   }
 
   beforeReflex (element, reflex) {
-    console.log("beforeReflex")
     document
       .querySelectorAll('[data-activity-indicator]')
       .forEach(el => (el.hidden = false))
@@ -16,9 +15,5 @@ export default class extends Controller {
 
   reflexError (element, reflex, error) {
     alert(`Error invoking a Reflex! ${error}`)
-  }
-
-  reload () {
-    Turbolinks.visit(location.href)
   }
 }

@@ -4,6 +4,7 @@ requests
 django-pygments-renderer
 django-widget-tweaks
 django-redis
+django-tailwind
 
 https://github.com/gilmrjc/django-webpack-loader/archive/webpack-bundle-tracker-1.zip
 

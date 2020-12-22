@@ -18,13 +18,14 @@ entryFiles.forEach(function(file) {
 });
 const config = {
   mode: process.env.NODE_ENV,
+  devtool: 'inline-source-map',
   entry: entryObj,
   output: {
     path: __dirname + "/core/static/dist/js",
     filename: "[name].[fullhash].js"
   },
   optimization: {
-    minimize: true
+    minimize: false
   },
   plugins: [
     new BundleTracker({

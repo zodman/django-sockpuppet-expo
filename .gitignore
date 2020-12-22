@@ -157,3 +157,4 @@ node_modules
 django-sockpuppet
 .env/
 webpack-stats.json
+theme/static/css
