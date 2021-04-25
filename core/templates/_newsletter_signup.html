@@ -1,0 +1,33 @@
+{% load static %}
+<body xmlns="http://www.w3.org/1999/html">
+
+
+<script src="{% static 'sockpuppet/sockpuppet.js' %}"></script>
+<h2>Sign up for newsletter!</h2>
+<form id="morph-form">
+    {{ form }}
+    <input type="submit" data-reflex="click->Subscription_Reflex#add_person" data-reflex-root="#morph">
+    <div id="morph">
+        <h2>Signed:</h2>
+        <table>
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Remove</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for p in people %}
+                <tr>
+                    <td>{{ p.name }} </td>
+                    <td>{{ p.email }}</td>
+                    <td><a href="#" data-reflex="click->Subscription_Reflex#remove_person"
+                           data-id="{{ p.id }}">Remove</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</form>
+</body>

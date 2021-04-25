@@ -7,6 +7,7 @@ import core.views.example
 import core.views.book_search
 import core.views.chat
 import core.views.calendar
+import core.views.newsletter_signup
 
 
 urlpatterns = [
@@ -17,4 +18,5 @@ urlpatterns = [
     path('example/', core.views.example.example, name='example'),
     path('chat/', core.views.chat.chat, name='chat'),
     path('calendar/', core.views.calendar.calendar, name="calendar"),
+    path('newsletter-signup', core.views.newsletter_signup.view, name='newsletter-signup')
 ] + staticfiles_urlpatterns()
