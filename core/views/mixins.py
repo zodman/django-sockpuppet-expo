@@ -51,6 +51,7 @@ class ExampleMixin(MixinBase):
         ('core/templates/_example_demo.html', 'html', 'htmldjango'),
     )
 
+
 class ChatMixin(MixinBase):
     files = (
         ('core/views/chat.py', 'python', 'python3'),
@@ -59,12 +60,21 @@ class ChatMixin(MixinBase):
         ('core/templates/_chat_demo.html', 'html', 'htmldjango'),
     )
 
+
 class CalendarMixin(MixinBase):
     files = (
         ('core/views/calendar.py', 'python', 'python3'),
-#        ('core/reflexes/calendar_reflex.py', 'python', 'python3'),
-#        ('core/javascript/controllers/calendar_controller.js', 'javascript', 'javascript'),
+       # ('core/reflexes/calendar_reflex.py', 'python', 'python3'),
+       # ('core/javascript/controllers/calendar_controller.js', 'javascript', 'javascript'),
         ('core/templates/_calendar.html', 'html', 'htmldjango'),
         ('core/templates/_td_calendar.html', 'html', 'htmldjango'),
  
+    )
+
+
+class NewsletterSignupMixin(MixinBase):
+    files = (
+        ('core/views/newsletter_signup.py', 'python', 'python3'),
+        ('core/reflexes/newsletter_signup_reflex.py', 'python', 'python3'),
+        ('core/templates/_newsletter_signup.html', 'html', 'htmldjango')
     )
