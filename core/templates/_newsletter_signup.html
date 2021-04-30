@@ -4,9 +4,9 @@
 
 <script src="{% static 'sockpuppet/sockpuppet.js' %}"></script>
 <h2>Sign up for newsletter!</h2>
-<form id="morph-form">
+<form id="morph-form" data-reflex-root="#morph">
     {{ form }}
-    <input type="submit" data-reflex="click->Subscription_Reflex#add_person" data-reflex-root="#morph">
+    <input type="submit" data-reflex="click->Subscription_Reflex#add_person">
     <div id="morph">
         <h2>Signed:</h2>
         <table>

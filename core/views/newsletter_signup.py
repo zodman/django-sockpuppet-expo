@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from django.views.generic.edit import FormView
 
 from core.models import NewsletterSubscription
+from core.views.mixins import NewsletterSignupMixin
 
 
 class NewsletterSubscriptionForm(ModelForm):
@@ -10,9 +11,10 @@ class NewsletterSubscriptionForm(ModelForm):
         fields = ['name', 'email']
 
 
-class YourReflexNameView(FormView):
-    template_name = '_newsletter_signup.html'
+class NewsletterSignupView(NewsletterSignupMixin, FormView):
+    demo_template = '_newsletter_signup.html'
     form_class = NewsletterSubscriptionForm
+    subtitle = 'Newsletter Signup'
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -20,4 +22,4 @@ class YourReflexNameView(FormView):
         return context
 
 
-view = YourReflexNameView.as_view()
+view = NewsletterSignupView.as_view()
