@@ -5,7 +5,7 @@ django-pygments-renderer
 django-widget-tweaks
 django-redis
 
-https://github.com/gilmrjc/django-webpack-loader/archive/webpack-bundle-tracker-1.zip
+django-webpack-loader
 
 # deployment
 fabric
